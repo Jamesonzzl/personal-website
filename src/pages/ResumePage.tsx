@@ -1,0 +1,8 @@
+import { Printer } from 'lucide-react'
+import { FormatDate, Section } from '../components/UI'
+import { useSite } from '../state/SiteContext'
+
+export function ResumePage() {
+  const { t } = useSite(); const project = t.projects[0]
+  return <div className="resume-page"><section className="resume-header container"><div><p className="eyebrow">{t.resume.eyebrow}</p><h1>{t.resume.title}</h1><p>{t.contact.location} · <a href={`mailto:${t.email}`}>{t.email}</a></p></div><button className="button primary print-button" onClick={() => window.print()}><Printer aria-hidden="true"/>{t.common.print}</button></section><Section className="resume-sheet"><p className="resume-summary">{t.resume.summary}</p><div className="resume-columns"><div><article><h2>{t.resume.education}</h2><h3>BASIS Hangzhou</h3><p>{t.timeline[0].date} · {t.contact.location}</p></article><article><h2>{t.resume.project}</h2><h3>{project.title}</h3><p><FormatDate value={project.date}/></p><p>{project.summary}</p><p>{project.role}</p></article><article><h2>{t.resume.experience}</h2><h3>{t.timeline[1].title}</h3><p>{t.timeline[1].date}</p><p>{t.timeline[1].text}</p></article></div><div><article><h2>{t.resume.achievements}</h2><ul>{t.achievements.map(item => <li key={item.title}>{item.title} <span>— {item.date.length === 10 ? <FormatDate value={item.date}/> : item.date}</span></li>)}</ul></article><article><h2>{t.resume.skills}</h2>{t.skills.map(group => <div key={group.title}><h3>{group.title}</h3><p>{group.items.join(' · ')}</p></div>)}</article></div></div><p className="print-instruction">{t.resume.instruction}</p></Section></div>
+}
