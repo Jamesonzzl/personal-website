@@ -3,5 +3,6 @@ import react from '@vitejs/plugin-react'
 import { sitesOutput } from './build/sitesOutput'
 
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? '/personal-website/' : '/',
   plugins: [react(), sitesOutput()],
 })

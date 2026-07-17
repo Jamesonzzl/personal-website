@@ -2,6 +2,8 @@
 
 A responsive English / Simplified Chinese portfolio built with React, Vite, TypeScript, React Router, regular CSS, and Lucide icons.
 
+Published with GitHub Pages at `https://jamesonzzl.github.io/personal-website/`.
+
 ## Run locally
 
 ```bash
